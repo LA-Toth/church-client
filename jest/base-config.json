@@ -1,0 +1,28 @@
+{
+  "preset": "ts-jest",
+  "browser": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.tsx",
+    "!**/__tests__/**"
+  ],
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["html", "text-summary", "lcov"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 99,
+      "lines": 99,
+      "statements": 99
+    }
+  },
+  "moduleNameMapper": {
+    "\\.scss$": "identity-obj-proxy"
+  },
+  "rootDir": "../",
+  "testURL": "http://localhost:8000/",
+  "transform": {
+    "\\.js$": "babel-jest",
+    "\\.(png|gif|jpe?g|svg)$": "<rootDir>/jest/url-loader-transformer.js"
+  },
+  "moduleFileExtensions": ["ts", "tsx", "js"]
+}
