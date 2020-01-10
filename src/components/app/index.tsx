@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../logo.svg'
 import styles from './index.scss'
+import Status from '../status'
 
 export class App extends React.PureComponent {
   render() {
@@ -14,6 +15,7 @@ export class App extends React.PureComponent {
           <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
             Learn React
           </a>
+          <Status />
         </header>
       </div>
     )
