@@ -59,6 +59,12 @@ module.exports = {
     ],
   },
   mode: 'development',
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    host: 'client.lvh.me',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
