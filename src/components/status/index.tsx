@@ -11,7 +11,8 @@ export class Status extends React.Component<{}, StatusState> {
   }
 
   componentDidMount() {
-    fetch('http://api.laszloattilatoth.me/')
+    const url = location.hostname.includes('.lvh.me') ? 'http://api.lvh.me:3000' : 'http://api.laszloattilatoth.me/'
+    fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ success: data.success }))
   }
