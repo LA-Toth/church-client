@@ -13,13 +13,14 @@
     "eslint:fix": "yarn prettier && yarn eslint --fix",
     "lint": "yarn eslint && yarn typecheck",
     "prettier": "prettier 'src/**/*.tsx' --write",
-    "start": "webpack-dev-server --config webpack.config.dev.js --open",
+    "start": "webpack-dev-server --config webpack.config.dev.js --open  --history-api-fallback",
     "test": "yarn test:react-current",
     "test:react-current": "echo \"testing current React version\" && jest --config jest/config.js",
     "test:watch": "yarn test --watch",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@popperjs/core": "^2.0.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -58,6 +59,8 @@
     "jest-cli": "^24.9.0",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-router-dom": "^5.1.2",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
