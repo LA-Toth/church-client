@@ -1,45 +1,62 @@
 import React, { Component } from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import Link from './link'
 import styles from './index.scss'
+import classnames from 'classnames'
+import Brand from './brand'
 
 type MainMenuProps = {
   title: string
   subtitle: string
 }
 
-export class MainMenu extends Component<MainMenuProps> {
+type MainMenuState = {
+  sticky: boolean
+}
+
+export class MainMenu extends Component<MainMenuProps, MainMenuState> {
+  state = {
+    sticky: false,
+  }
+
+  constructor(props) {
+    super(props)
+    // eslint-disable-next-line immutable/no-mutation
+    this.handleScroll = this.handleScroll.bind(this)
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll() {
+    const element = document.getElementById('navbar-brand')
+    const elementBottom = element ? element.getBoundingClientRect().bottom : 0
+
+    this.setState({ sticky: elementBottom <= 0 })
+  }
+
   render() {
     const { title, subtitle } = this.props
+    const { sticky } = this.state
     return (
-      <Navbar bg="light" expand="lg">
-        <LinkContainer to="/">
-          <Navbar.Brand>
-            <div>{title}</div>
-            <div>{subtitle}</div>
-          </Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <LinkContainer to="/">
-              <Nav.Link data-keybinding="1">
-                <i className="fa fa-bar-chart menu-row-icon" aria-hidden="true" />
-                <div className={styles.navbar_text_lg}>Home</div>
-              </Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link>Sign up</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <Nav.Link>Log In</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/splash">
-              <Nav.Link>SPL</Nav.Link>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div>
+        <Brand title={title} subtitle={subtitle} />
+        <Navbar bg="light" className={classnames(styles.navBarTop, sticky && styles.navBarFixed)}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="container">
+            <Nav className="mr-auto">
+              <Link path="/" label="Home" icon="fa-bar-chart" />
+              <Link path="/login" label="Login" icon="fa-sign-in" />
+              <Link path="/splash" label="SPLASH" icon="fa-superpowers" />
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     )
   }
 }

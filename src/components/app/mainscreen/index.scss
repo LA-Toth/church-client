@@ -1,4 +1,13 @@
 :not(#\9) {
+  .content {
+    background-color: #fff;
+    position: relative;
+    padding-top: 5em;
+  }
+
+  .header {
+    position: relative;
+  }
   .app {
     //text-align: center;
   }

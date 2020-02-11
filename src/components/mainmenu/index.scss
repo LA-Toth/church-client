@@ -1,8 +1,23 @@
 :not(#\9) {
-  .navbar_text_lg, .navbar_text_keep {
-    display: inline-block;
-   // padding-top: 0.5rem;
-   // padding-bottom: 0.5rem;
-    padding-left: 0.1em;
+  .navBar {
+    text-align: center;
+  }
+
+  .navBarTop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .navBarFixed {
+    bottom: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 7;
   }
 }
