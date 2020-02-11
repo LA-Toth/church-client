@@ -1,40 +1,20 @@
 :not(#\9) {
-  .app {
-    //text-align: center;
+  .mainScreenAppear {
+    opacity: 0;
+    transition: opacity 300ms ease;
+    transition-delay: 350ms
   }
 
-  .appLogo {
-    height: 40vmin;
-    pointer-events: none;
+  .mainScreenAppearActive {
+    opacity: 1;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .appLogo {
-      animation: appLogoSpin infinite 20s linear;
-    }
+  .splashScreenExit {
+    opacity: 1;
+    transition: opacity 400ms ease-out;
   }
 
-  .appHeader {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-
-  .appLink {
-    color: #61dafb;
-  }
-
-  @keyframes appLogoSpin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .mainScreenExitActive {
+    opacity: 0;
   }
 }

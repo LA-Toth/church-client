@@ -3,13 +3,22 @@ import { Nav, Navbar } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import styles from './index.scss'
 
-type MainMenuProps = {}
+type MainMenuProps = {
+  title: string
+  subtitle: string
+}
 
 export class MainMenu extends Component<MainMenuProps> {
   render() {
+    const { title, subtitle } = this.props
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>
+            <div>{title}</div>
+            <div>{subtitle}</div>
+          </Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

@@ -8,11 +8,18 @@ import SignUp from '../../auth/signup'
 import MainMenu from '../../mainmenu'
 import SplashScreen from '..//splashscreen'
 
-export class MainScreen extends React.PureComponent {
+export type MainScreenProps = {
+  title: string
+  subtitle: string
+}
+
+export class MainScreen extends React.Component<MainScreenProps> {
   render() {
+    const { title, subtitle } = this.props
+
     return (
       <div className={styles.app}>
-        <MainMenu />
+        <MainMenu title={title} subtitle={subtitle} />
         <div className="container">
           <header className={styles.appHeader}>
             <img src={logo} className={styles.appLogo} alt="logo" />
