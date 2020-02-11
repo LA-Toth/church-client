@@ -1,0 +1,31 @@
+:not(#\9) {
+  .splashScreen {
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    background: #282c34;
+  }
+
+  .splashScreenImg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .splashScreenImg {
+      animation: splashScreenSpin infinite 20s linear;
+    }
+  }
+
+  @keyframes splashScreenSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -25,6 +25,9 @@ export class MainMenu extends Component<MainMenuProps> {
             <LinkContainer to="/login">
               <Nav.Link>Log In</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/splash">
+              <Nav.Link>SPL</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
