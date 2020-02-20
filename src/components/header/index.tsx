@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
-import { Nav, Navbar } from 'react-bootstrap'
-import Link from './link'
-import styles from './index.scss'
-import classnames from 'classnames'
 import Brand from './brand'
+import NavBar from './navbar'
 
-type MainMenuProps = {
+type HeaderProps = {
   title: string
   subtitle: string
 }
 
-type MainMenuState = {
+type HeaderState = {
   sticky: boolean
 }
 
-export class MainMenu extends Component<MainMenuProps, MainMenuState> {
+export class Header extends Component<HeaderProps, HeaderState> {
   state = {
     sticky: false,
   }
@@ -46,20 +43,10 @@ export class MainMenu extends Component<MainMenuProps, MainMenuState> {
     return (
       <div>
         <Brand title={title} subtitle={subtitle} />
-        <Navbar bg="light" className={classnames(styles.navBarTop, sticky && styles.navBarFixed)}>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="container">
-            <Nav className="mr-auto">
-              <Link path="/" label="Home" icon="fa-bar-chart" />
-              <Link path="/login" label="Login" icon="fa-sign-in" />
-              <Link path="/splash" label="SPLASH" icon="fa-superpowers" />
-              <Link path="/users" label="Users" icon="fa-superpowers" />
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+        <NavBar sticky={sticky} />
       </div>
     )
   }
 }
 
-export default MainMenu
+export default Header

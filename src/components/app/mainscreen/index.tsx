@@ -5,7 +5,7 @@ import styles from './index.scss'
 import Status from '../../status'
 import Login from '../../auth/login'
 import SignUp from '../../auth/signup'
-import MainMenu from '../../mainmenu'
+import Header from '../../header'
 import SplashScreen from '../splashscreen'
 import classnames from 'classnames'
 import Users from '../../users'
@@ -22,7 +22,7 @@ export class MainScreen extends React.Component<MainScreenProps> {
     return (
       <div className={styles.app}>
         <header className={styles.header}>
-          <MainMenu title={title} subtitle={subtitle} />
+          <Header title={title} subtitle={subtitle} />
         </header>
         <div className={classnames(styles.content, 'container')}>
           <Switch>
