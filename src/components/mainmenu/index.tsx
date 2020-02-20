@@ -53,6 +53,7 @@ export class MainMenu extends Component<MainMenuProps, MainMenuState> {
               <Link path="/" label="Home" icon="fa-bar-chart" />
               <Link path="/login" label="Login" icon="fa-sign-in" />
               <Link path="/splash" label="SPLASH" icon="fa-superpowers" />
+              <Link path="/users" label="Users" icon="fa-superpowers" />
             </Nav>
           </Navbar.Collapse>
         </Navbar>

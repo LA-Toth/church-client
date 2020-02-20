@@ -45,6 +45,9 @@ export class MainScreen extends React.Component<MainScreenProps> {
             <Route path="/splash">
               <SplashScreen />
             </Route>
+            <Route path="/users">
+              <Users />
+            </Route>
           </Switch>
         </div>
       </div>
