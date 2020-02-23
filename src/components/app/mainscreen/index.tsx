@@ -10,20 +10,22 @@ import SplashScreen from '../splashscreen'
 import classnames from 'classnames'
 import Users from '../../users'
 import BlogEntryEditor from '../../blogentryeditor'
+import { AuthInfo } from '../../../types/common'
 
 export type MainScreenProps = {
   title: string
   subtitle: string
+  authInfo: AuthInfo
 }
 
 export class MainScreen extends React.Component<MainScreenProps> {
   render() {
-    const { title, subtitle } = this.props
+    const { title, subtitle, authInfo } = this.props
 
     return (
       <div className={styles.app}>
         <header className={styles.header}>
-          <Header title={title} subtitle={subtitle} />
+          <Header title={title} subtitle={subtitle} authInfo={authInfo} />
         </header>
         <div className={classnames(styles.content, 'container')}>
           <Switch>

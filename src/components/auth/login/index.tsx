@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { FormControl, FormGroup, FormLabel } from 'react-bootstrap'
 import styles from './index.scss'
 import classnames from 'classnames'
+import Form from 'react-bootstrap/Form'
 
 export type LoginProps = {}
 
@@ -13,30 +13,27 @@ export class Login extends Component<LoginProps, LoginState> {
   render() {
     return (
       <div className="login">
-        <form>
+        <Form>
           <h3>Sign In</h3>
 
-          <FormGroup controlId="email">
-            <FormLabel>Email address</FormLabel>
-            <FormControl autoFocus type="email" placeholder="Enter Email" />
-          </FormGroup>
+          <Form.Group controlId="email">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control autoFocus type="email" placeholder="Enter Email" />
+          </Form.Group>
 
-          <FormGroup controlId="password">
-            <FormLabel>Password</FormLabel>
-            <FormControl autoFocus type="email" placeholder="Enter Password" />
-          </FormGroup>
+          <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control autoFocus type="password" placeholder="Enter Password" />
+          </Form.Group>
 
-          <FormGroup controlId="email">
+          <Form.Group controlId="rememberMe">
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="rememberMe" />
-              <FormLabel
-                className={classnames('custom-control-label', styles.custom_control_label)}
-                htmlFor="rememberMe"
-              >
+              <Form.Control type="checkbox" className="custom-control-input" />
+              <Form.Label className={classnames('custom-control-label', styles.custom_control_label)}>
                 Remember me
-              </FormLabel>
+              </Form.Label>
             </div>
-          </FormGroup>
+          </Form.Group>
 
           <button type="submit" className="btn btn-primary btn-block">
             Submit
@@ -44,7 +41,7 @@ export class Login extends Component<LoginProps, LoginState> {
           <p className="forgot-password text-right">
             Forgot <a href="#">password?</a>
           </p>
-        </form>
+        </Form>
       </div>
     )
   }

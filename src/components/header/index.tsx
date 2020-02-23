@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Brand from './brand'
 import NavBar from './navbar'
+import { AuthInfo } from '../../types/common'
 
 type HeaderProps = {
   title: string
   subtitle: string
+  authInfo: AuthInfo
 }
 
 type HeaderState = {
@@ -38,12 +40,12 @@ export class Header extends Component<HeaderProps, HeaderState> {
   }
 
   render() {
-    const { title, subtitle } = this.props
+    const { title, subtitle, authInfo } = this.props
     const { sticky } = this.state
     return (
       <div>
         <Brand title={title} subtitle={subtitle} />
-        <NavBar sticky={sticky} />
+        <NavBar sticky={sticky} authInfo={authInfo} />
       </div>
     )
   }
