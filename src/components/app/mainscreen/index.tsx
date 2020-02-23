@@ -9,6 +9,7 @@ import Header from '../../header'
 import SplashScreen from '../splashscreen'
 import classnames from 'classnames'
 import Users from '../../users'
+import BlogEntryEditor from '../../blogentryeditor'
 
 export type MainScreenProps = {
   title: string
@@ -47,6 +48,9 @@ export class MainScreen extends React.Component<MainScreenProps> {
             </Route>
             <Route path="/users">
               <Users />
+            </Route>
+            <Route path="/editor">
+              <BlogEntryEditor title="Sample Title" content="<p>fdsfasdajklfdskjla sdaf sdf <b>dsf sdf</b></p>" />
             </Route>
           </Switch>
         </div>
