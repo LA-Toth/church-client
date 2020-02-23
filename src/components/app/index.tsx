@@ -4,6 +4,8 @@ import SplashScreen from './splashscreen'
 import MainScreen from './mainscreen'
 import styles from './index.scss'
 import { AuthInfo } from '../../types/common'
+import { getApiBaseUrl } from '../../config'
+import AuthService from '../../services/AuthService'
 
 type AppProps = {}
 
@@ -32,16 +34,26 @@ export class App extends React.Component<AppProps, AppState> {
     },
   }
 
+  constructor(props) {
+    super(props)
+
+    this.fetchSiteProps = this.fetchSiteProps.bind(this)
+  }
+
   componentDidMount() {
-    const url = location.hostname.includes('.lvh.me') ? 'http://api.lvh.me:3000' : 'http://api.laszloattilatoth.me/'
-    fetch(url + '/site-props')
+    this.fetchSiteProps()
+  }
+
+  fetchSiteProps() {
+    const url = getApiBaseUrl()
+    fetch(url + 'site-props', AuthService.getAuthHeader())
       .then(response => response.json())
       .then(data =>
         this.setState({
           loaded: true,
           title: data.title,
           subtitle: data.subtitle,
-          authInfo: { loggedIn: data.logged_in, userName: data.full_name },
+          authInfo: { loggedIn: data.logged_in, userName: data.full_name, reload: this.fetchSiteProps },
         })
       )
   }

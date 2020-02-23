@@ -32,6 +32,7 @@ export class MainScreen extends React.Component<MainScreenProps> {
             <Route exact path="/">
               <img src={logo} className={styles.appLogo} alt="logo" />
               <p>
+                {process.env.REACT_APP_TEST_VAR}
                 Edit <code>src/App.tsx</code> and save to reload.
               </p>
               <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
@@ -40,7 +41,7 @@ export class MainScreen extends React.Component<MainScreenProps> {
               <Status />
             </Route>
             <Route path="/login">
-              <Login />
+              <Login authInfo={authInfo} />
             </Route>
             <Route path="/signup">
               <SignUp />
