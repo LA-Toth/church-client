@@ -31,7 +31,7 @@ export class BlogEntryEditor extends React.Component<BlogEntryEditorProps, BlogE
     const { title, content } = this.props
 
     return (
-      <div>
+      <>
         <ContentTitle
           title={title}
           superScript={
@@ -45,7 +45,7 @@ export class BlogEntryEditor extends React.Component<BlogEntryEditorProps, BlogE
           }
         />
         <Editor content={content} onContentChange={this.handleChange} onSave={this.handleSave} />
-      </div>
+      </>
     )
   }
 

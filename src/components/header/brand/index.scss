@@ -1,8 +1,10 @@
 :not(#\9) {
   .brand {
     padding-top: 3em;
-    padding-bottom: 3em;
+    padding-bottom: 8em;
     background-color: #f0f0f0;
+    position: relative;
+    z-index: 7;
   }
 
   .title {

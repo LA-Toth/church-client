@@ -62,7 +62,7 @@ export class App extends React.Component<AppProps, AppState> {
     const { loaded, title, subtitle, authInfo } = this.state
 
     return (
-      <div>
+      <>
         {loaded && (
           <CSSTransition in appear timeout={1000} classNames={transition}>
             <MainScreen title={title!} subtitle={subtitle!} authInfo={authInfo} />
@@ -71,7 +71,7 @@ export class App extends React.Component<AppProps, AppState> {
         <CSSTransition in={!loaded} exit unmountOnExit timeout={400} classNames={splashTransition}>
           <SplashScreen />
         </CSSTransition>
-      </div>
+      </>
     )
   }
 }

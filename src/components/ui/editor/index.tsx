@@ -37,39 +37,39 @@ export class Editor extends React.Component<EditorProps, EditorState> {
     const { content, markChangedEditor } = this.props
 
     return (
-      <div>
-        <div className={classnames(styles.editor, markChangedEditor && changed && styles.unsavedEditor)}>
-          <SunEditor
-            lang="en"
-            placeholder="Please type here..."
-            setOptions={{
-              height: 500,
-              minHeight: 250,
-              buttonList: [
-                ['save'],
-                ['undo', 'redo'],
-                ['font', 'fontSize', 'formatBlock'],
-                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
-                ['fontColor', 'hiliteColor'],
-                ['removeFormat'],
-                '/',
-                ['align', 'list'],
-                ['outdent', 'indent'],
-                ['horizontalRule', 'table'],
-                ['link', 'image', 'video'],
-                ['showBlocks', 'codeView'],
-                ['preview', 'print'],
-                ['fullScreen'],
-              ],
-              charCounter: true,
-              wordCounter: true,
-              callBackSave: this.handleSave,
-            }}
-            onImageUpload={this.foo}
-            onChange={this.handleChange}
-            setContents={content || defaultContent}
-          />
-        </div>
+      <div className={classnames(styles.editor, markChangedEditor && changed && styles.unsavedEditor)}>
+        <SunEditor
+          lang="en"
+          placeholder="Please type here..."
+          setOptions={{
+            height: 500,
+            minHeight: 250,
+            buttonList: [
+              ['save'],
+              [],
+              ['undo', 'redo'],
+              ['font', 'fontSize', 'formatBlock'],
+              ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+              ['fontColor', 'hiliteColor'],
+              ['removeFormat'],
+              '/',
+              ['align', 'list'],
+              ['outdent', 'indent'],
+              ['horizontalRule', 'table'],
+              ['link', 'image', 'video'],
+              ['showBlocks', 'codeView'],
+              [],
+              ['preview', 'print'],
+              ['fullScreen'],
+            ],
+            charCounter: true,
+            wordCounter: true,
+            callBackSave: this.handleSave,
+          }}
+          onImageUpload={this.foo}
+          onChange={this.handleChange}
+          setContents={content || defaultContent}
+        />
       </div>
     )
   }
