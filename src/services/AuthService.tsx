@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { getApiBaseUrl } from '../config'
-import jQuery from 'jQuery'
+import jQuery from 'jquery'
 
 class AuthService {
   logIn(credentials) {
