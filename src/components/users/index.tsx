@@ -1,5 +1,6 @@
 import React from 'react'
 import Table, { Row } from '../ui/table'
+import AuthService from '../../services/AuthService'
 
 type User = {
   id: int
@@ -16,7 +17,7 @@ export class Users extends React.Component<{}, UsersState> {
 
   componentDidMount() {
     const url = location.hostname.includes('.lvh.me') ? 'http://api.lvh.me:3000' : 'http://api.laszloattilatoth.me/'
-    fetch(url + '/users')
+    fetch(url + '/users', AuthService.getAuthHeader())
       .then(response => response.json())
       .then(data => this.setState({ users: data }))
   }
